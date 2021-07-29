@@ -1,11 +1,11 @@
-package io.scalac
+package io.scalac.zio_basics
 
 import zio._
 
 /**
  * The following application is the ZIO-based equivalent to the blueprint example.
  *
- * > sbt "runMain io.scalac.helloZIO"
+ * > sbt "runMain io.scalac.zio_basics.helloZIO"
  */
 @main
 def helloZIO =

@@ -1,4 +1,4 @@
-package io.scalac
+package io.scalac.blueprint
 
 /**
  * A blueprint is a **value** that describes a computation.
@@ -111,7 +111,7 @@ object Blueprint:
   def accessM[R, E, A](f: R => Blueprint[R, E, A]): Blueprint[R, E, A] =
     ???
 
-object console:
+object Console:
 
   /**
    * EXERCISE 1
@@ -120,7 +120,7 @@ object console:
    *
    * Hint: use the `println` function.
    */
-  def putStrLn(line: String): Blueprint[Any, Nothing, Unit] = ???
+  def printLine(line: String): Blueprint[Any, Nothing, Unit] = ???
 
   /**
    * EXERCISE 2
@@ -129,7 +129,7 @@ object console:
    *
    * Hint: use the `scala.io.StdIn#readLine` function.
    */
-  val getStrLn: Blueprint[Any, Nothing, String] = ???
+  val readLine: Blueprint[Any, Nothing, String] = ???
 
 object Runtime:
 
@@ -149,14 +149,14 @@ object Runtime:
  *
  * Test your implementation, by running the following program from the console.
  *
- * > sbt "runMain io.scalac.helloBlueprint"
+ * > sbt "runMain io.scalac.blueprint.helloBlueprint"
  */
 @main
 def helloBlueprint =
   Runtime.unsafeRun(
     for
-      _    <- console.putStrLn("What is your name?")
-      name <- console.getStrLn
-      _    <- console.putStrLn(s"Hello $name!")
+      _    <- Console.printLine("What is your name?")
+      name <- Console.readLine
+      _    <- Console.printLine(s"Hello $name!")
     yield ()
   )
