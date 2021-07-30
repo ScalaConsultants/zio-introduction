@@ -3,12 +3,16 @@ package io.scalac.blueprint
 /**
  * A blueprint is a **value** that describes a computation.
  *
- * The computation requires a value of type R to run, we say ~ it requires some context R to run ~ it runs in the
- * environment R
+ * The computation requires a value of type R to run, we say
+ * ~ it requires some context R to run
+ * ~ it runs in the environment R
  *
- * The computation can end with: ~ a success value of type A ~ an error value of type B ~ it can run forever, never
- * returning ~ or in case of fatal defect, it can throw an exception however this is the "escape hatch" mechanism,
- * ideally it should never happen
+ * The computation can end with:
+ * ~ a success value of type A
+ * ~ an error value of type B
+ * ~ it can run forever, never returning
+ * ~ or in case of fatal defect, it can throw an exception
+ *   however this is the "escape hatch" mechanism, ideally it should never happen
  */
 final case class Blueprint[-R, +E, +A](run: R => Either[E, A]):
   self =>
