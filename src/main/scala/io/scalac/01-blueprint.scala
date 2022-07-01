@@ -9,7 +9,7 @@ package io.scalac.blueprint
  *
  * The computation can end with:
  * ~ a success value of type A
- * ~ an error value of type B
+ * ~ an error value of type E
  * ~ it can run forever, never returning
  * ~ or in case of fatal defect, it can throw an exception
  *   however this is the "escape hatch" mechanism, ideally it should never happen
